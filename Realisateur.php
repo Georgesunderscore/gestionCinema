@@ -7,4 +7,6 @@ class Realisateur extends Personne
 	{
         parent::__construct($nom , $prenom,$sex,$dateNaissance);	
     }
+
+    
 }

@@ -1,0 +1,32 @@
+* {
+	padding: 10px;
+	margin: 10px;
+}
+
+p {
+	padding: 10px;
+	margin: 10px;
+
+}
+
+div {
+	border-width: 2px;
+	border-style: solid;
+	border-color: red;
+	text-shadow: 1px 1px #ff0000;
+}
+
+.flex-container-wrap {
+	display: flex;
+	flex-flow: row wrap;
+
+}
+
+.flex-container {
+	display: flex;
+	flex-flow: column;
+	margin: 10px;
+	text-align: center;
+	height: auto;
+
+}

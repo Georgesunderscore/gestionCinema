@@ -1,4 +1,3 @@
-//réalisateur r (unique, avec nom, prénom, sexe et date de naissance).
 
 <?php
 class Realisateur extends Personne

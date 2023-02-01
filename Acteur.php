@@ -35,4 +35,12 @@ class Acteur extends Personne
 		$this->_listCasting[] = $cast;
 		return $this;
 	}
+
+
+	public function __toString()
+	{
+		$ecrire = $this->getNom() . " " . $this->getPrenom();
+		echo "<br>";
+		return $ecrire;
+	}
 }

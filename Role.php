@@ -55,20 +55,20 @@ class Role
 	// role->getlistac();
 	// getlistac(role);
 
-	public function getListActeurParRole(Role $role)
+	public function getListActeurParRole()
 	{
 		//filtrer la list par le role 
 		//return $this->_listCasting . filter_id($role->_role);
-		echo "<div class='flex-container'>";
-		echo "<div class='flex-container-wrap'>";
-		echo "<h2> Les acteurs ayant joué le rôle de " .  $role->getRole() . " Sont:  </h2>";
+		
+		echo "<div >";
+		echo "<h2> Les acteurs ayant joué le rôle de " .  $this->getRole() . " Sont:  </h2>";
 		foreach ($this->getListCasting() as $val) {
 
 			//faire l'echo html 
-			if ($val->getRole()->getRole() == $role->getRole())
-				echo "<p>" . $val->getActeur() . " </p>";
+			if ($val->getRole()->getRole() == $this->getRole())
+				echo "<span>" . $val->getActeur() . " </span>";
 		}
 		echo "</div>";
-		echo "</div>";
+		
 	}
 }

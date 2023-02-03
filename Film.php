@@ -15,18 +15,20 @@ class Film
 	private int $_dureeMinutes;
 	private string $_synopsis;
 	private Realisateur $_realisateur;
-	private string $_cinematographique;
+	private Genre $_genre;
 
 	private array $_listCasting;
 
-	public function __construct($titre, $dateSortie, $dureeMinutes, $synopsis, $cinematographique, $realisateur)
+	public function __construct($titre, $dateSortie, $dureeMinutes, $synopsis, $genre, $realisateur)
 	{
 
 		$this->_titre = $titre;
 		$this->_dureeMinutes = $dureeMinutes;
 		$this->_synopsis = $synopsis;
-		$this->_cinematographique = $cinematographique;
+		$this->_genre = $genre;
 		$this->_realisateur = $realisateur;
+		//ajouter a la list des films de ce genre 
+		$this->_genre->ajoutFilm($this);
 	}
 
 
@@ -115,18 +117,6 @@ class Film
 	/**
 	 * Get the value of _cinematographique
 	 */
-	public function getCinematographique(): string
-	{
-		return $this->_cinematographique;
-	}
-
-	/**
-	 * Set the value of _cinematographique
-	 */
-	public function setCinematographique(string $_cinematographique)
-	{
-		$this->_cinematographique = $_cinematographique;
-	}
 
 	public function getListCasting(): array
 	{
@@ -158,20 +148,39 @@ class Film
 	/// été incarné par Mark Hamill, ...)
 
 
-	public function getListCastingParFilm(Film $film)
+	public function getListCastingParFilm()
 	{
 		//filtrer la list par le role 
 		//return $this->_listCasting . filter_id($role->_role);
-		echo "<div class='flex-container'>";
-		echo "<div class='flex-container-wrap'>";
-		echo "<h2> dans  le  film" .  $film->getTitre() . "</h2>";
+	
+		echo "<div >";
+		echo "<h2> dans  le  film" .  $this->getTitre() . "</h2>";
 
 		foreach ($this->getListCasting() as $val) {
 			//faire l'echo html 
-			if ($val->getFilm()->getTitre() == $film->getTitre())
+			if ($val->getFilm()->getTitre() == $this->getTitre())
 				echo "<p>" . $val->getActeur() . "a été incarné " . $val->getRole()->getRole() . " </p>";
 		}
 		echo "</div>";
-		echo "</div>";
+		
+	}
+
+	/**
+	 * Get the value of _cinematographique
+	 */ 
+	public function getCinematographique()
+	{
+		return $this->_genre;
+	}
+
+	/**
+	 * Set the value of _cinematographique
+	 *
+	 * 
+	 */ 
+	public function setGenre($genre)
+	{
+		$this->_genre = $genre;
+
 	}
 }

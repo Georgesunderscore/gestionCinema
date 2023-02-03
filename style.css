@@ -16,17 +16,11 @@ div {
 	text-shadow: 1px 1px #ff0000;
 }
 
-.flex-container-wrap {
+
+.container-flex-row {
 	display: flex;
 	flex-flow: row wrap;
-
-}
-
-.flex-container {
-	display: flex;
-	flex-flow: column;
 	margin: 10px;
 	text-align: center;
-	height: auto;
-
-}
+	
+	}

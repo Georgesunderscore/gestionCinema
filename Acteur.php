@@ -3,7 +3,6 @@
 
 <?php
 
-
 class Acteur extends Personne
 {
 	private array $_listCasting; //filtrer avec role 
@@ -42,5 +41,53 @@ class Acteur extends Personne
 		$ecrire = $this->getNom() . " " . $this->getPrenom();
 		echo "<br>";
 		return $ecrire;
+	}
+
+	
+
+	
+	public function getListFilmParActeur()	{
+		//filtrer la list par le role 
+		//return $this->_listCasting . filter_id($role->_role);
+		
+		echo "<div >";
+		echo "<h2> Les Films qui ont l'acteur " .  $this->getNom() ." ". $this->getPrenom() . " Sont:  </h2>";
+		//$listdesfilms = array();
+		$listdesfilms = [];
+		
+		
+		//echo count($this->getListCasting() );
+
+		foreach ($this->getListCasting() as $val) {
+
+			
+			//!ajout a lafffichage si la film il est pas encore deja afficher
+			//echo "test initial ". count($listdesfilms) ;
+			if (count($listdesfilms) !=0){
+				//echo "2eme etap count ". count($listdesfilms) ;
+				foreach($listdesfilms as $valexistant){
+					//echo("existatn" .$valexistant . "<br>") ;	
+					 if (strcmp($val->getFilm()->getTitre(),$valexistant)!=0){
+						 echo "<div>" . $val->getFilm()->getTitre() . " </div>";
+						 $listdesfilms[] = $val->getFilm()->getTitre();
+						 //echo "2eme etap" .count($listdesfilms) ;
+					}					
+				}
+			}
+			else{
+				echo "<div>" . $val->getFilm()->getTitre() . " </div>";
+				$listdesfilms[] = $val->getFilm()->getTitre();
+				//echo"1er etap count" .count($listdesfilms) ;
+				//echo($listdesfilms[0]);
+
+
+			}
+			
+																					
+			
+
+		echo "</div>";
+		
+		}
 	}
 }

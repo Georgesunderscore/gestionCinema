@@ -79,8 +79,12 @@
 
 	//$a2->getListFilmParActeur();
 
-	
 	$a3->getListFilmParActeur();
+
+	//Lister la filmographie d'un réalisateur
+	$rea1->getListFilmParRealisateur();
+
+
 
 	echo "</div>";
 	

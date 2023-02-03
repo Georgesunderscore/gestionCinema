@@ -68,14 +68,14 @@ class Acteur extends Personne
 				foreach($listdesfilms as $valexistant){
 					//echo("existatn" .$valexistant . "<br>") ;	
 					 if (strcmp($val->getFilm()->getTitre(),$valexistant)!=0){
-						 echo "<div>" . $val->getFilm()->getTitre() . " </div>";
+						 echo "<span>" . $val->getFilm()->getTitre() . " </span>";
 						 $listdesfilms[] = $val->getFilm()->getTitre();
 						 //echo "2eme etap" .count($listdesfilms) ;
 					}					
 				}
 			}
 			else{
-				echo "<div>" . $val->getFilm()->getTitre() . " </div>";
+				echo "<span>" . $val->getFilm()->getTitre() . " </span>";
 				$listdesfilms[] = $val->getFilm()->getTitre();
 				//echo"1er etap count" .count($listdesfilms) ;
 				//echo($listdesfilms[0]);

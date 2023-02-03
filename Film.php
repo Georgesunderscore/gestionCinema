@@ -29,6 +29,7 @@ class Film
 		$this->_realisateur = $realisateur;
 		//ajouter a la list des films de ce genre 
 		$this->_genre->ajoutFilm($this);
+		$this->_realisateur->ajoutFilm($this);
 	}
 
 
